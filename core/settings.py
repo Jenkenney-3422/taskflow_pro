@@ -19,8 +19,12 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    # ...
-      # <-- Check if this is here!
+    'django.contrib.contenttypes', # <--- Make sure this line is exactly here
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    
+    'tasks', # The app you just created
 ]
 
 # --- DATABASE CONFIG (Postgres) ---

@@ -9,10 +9,14 @@ load_dotenv()
 # Parses the DATABASE_URL from Render or .env
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
+        default=os.getenv('DATABASE_URL')
     )
 }
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    # ... other middlewares ...
+]
 
 # --- CELERY & REDIS CONFIG ---
 CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')

@@ -23,7 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tasks_app', # The app you just created 
+    'tasks_app', # The app you just created
+    'corsheaders', # For handling CORS in case you have a frontend on a different domain
+    'cloudinary', # For handling media uploads to Cloudinary
 ]
 
 # --- DATABASE CONFIG (Postgres) ---

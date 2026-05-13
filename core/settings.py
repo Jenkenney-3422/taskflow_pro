@@ -8,7 +8,7 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = True  # Set to False for production, True for local development 
+DEBUG = False  # Set to False for production, True for local development 
 
 ALLOWED_HOSTS = [
     'localhost',

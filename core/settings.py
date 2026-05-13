@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'tasks', # The app you just created
+    'tasks_app', # The app you just created
 ]
 
 # --- DATABASE CONFIG (Postgres) ---

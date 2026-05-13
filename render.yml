@@ -1,0 +1,47 @@
+services:
+  # 1. The Web Server
+  - type: web
+    name: taskflow-web
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn core.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: postgres
+          name: taskflow-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: taskflow-redis
+          property: connectionString
+
+  # 2. The Worker (The "Muscle")
+  - type: worker
+    name: taskflow-worker
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "celery -A core worker --loglevel=info"
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: postgres
+          name: taskflow-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: taskflow-redis
+          property: connectionString
+
+# 3. The Broker (Redis)
+  - type: redis
+    name: taskflow-redis
+    plan: free
+    ipAllowList: []
+
+# 4. The Database (PostgreSQL)
+databases:
+  - name: taskflow-db
+    plan: free

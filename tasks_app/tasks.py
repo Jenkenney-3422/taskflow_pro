@@ -2,7 +2,7 @@ from celery import shared_task
 import time
 
 @shared_task
-def long_running_task(task_name):
-    print(f"Starting work on: {task_name}")
-    time.sleep(10) # Simulate a heavy background process
-    return f"Finished {task_name}!"
+def process_task_data(task_id):
+    print(f"Processing task: {task_id}")
+    time.sleep(10)
+    return f"Finished task {task_id}!"

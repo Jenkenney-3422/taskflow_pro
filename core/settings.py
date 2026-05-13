@@ -8,7 +8,7 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = True 
+DEBUG = False  # Set to False for production, True for local development 
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -69,6 +69,7 @@ CELERY_TASK_SERIALIZER = 'json'
 # --- STATIC FILES (WhiteNoise for Render) ---
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = '/static/'
 
 # --- SECRET KEY & ROOT URLCONF ---
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-key')

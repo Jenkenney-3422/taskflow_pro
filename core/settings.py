@@ -8,10 +8,19 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+DEBUG = True 
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.onrender.com',  # This allows any Render sub-domain
+]
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    # ...
+      # <-- Check if this is here!
 ]
 
 # --- DATABASE CONFIG (Postgres) ---

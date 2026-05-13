@@ -13,7 +13,7 @@ click-plugins==1.1.1.2
 click-repl==0.3.0
 cloudinary==1.44.2
 cryptography==48.0.0
-Django==6.0.5
+Django==5.1.7
 djangorestframework==3.17.1
 dnspython==2.6.1
 ecdsa==0.19.2

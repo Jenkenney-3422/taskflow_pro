@@ -7,8 +7,7 @@ services:
     startCommand: "gunicorn core.wsgi:application"
     envVars:
       - key: DATABASE_URL
-        fromService:
-          type: database
+        fromDatabase:        # <--- Changed from fromService
           name: taskflow-db
           property: connectionString
       - key: REDIS_URL
@@ -25,8 +24,7 @@ services:
     startCommand: "celery -A core worker --loglevel=info"
     envVars:
       - key: DATABASE_URL
-        fromService:
-          type: postgres
+        fromDatabase:        # <--- Changed from fromService
           name: taskflow-db
           property: connectionString
       - key: REDIS_URL

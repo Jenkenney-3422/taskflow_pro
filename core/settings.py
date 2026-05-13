@@ -8,7 +8,11 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.onrender.com',  # This allows any Render sub-domain
+]
 
 # --- DATABASE CONFIG (Postgres) ---
 # Parses the DATABASE_URL from Render or .env
